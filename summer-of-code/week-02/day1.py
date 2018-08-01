@@ -39,21 +39,37 @@ file = open(filename, "r")
 #   print(line)
 
 raw = file.read()
-print('from zero to sixty-five: ' + raw[:65])
+#print('from zero to sixty-five: ' + raw[:65])
 
-print('AGAIN: ' + raw[0:65])
+#print('AGAIN: ' + raw[0:65])
 
-print('the length of Alice in Wonderland in this text file is: ' + str(len(raw)) )
+#print('the length of Alice in Wonderland in this text file is: ' + str(len(raw)) )
 
 #163817
 
-print(raw[163000:])
+#print(raw)
 
+Table = {}
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+for letter in alphabet:
+    Table[letter] = 0
+
+test = "hello my name is Rose."
+i=0
+for character in raw.lower():
+    if character.isalpha():
+        Table[character] += 1
+    else:
+        i+=1
+#    Table[str(character)]+=1
+total = i
+print(Table, "  ", i)
+for value in Table.values():
+    total += value
+
+print(total)
 # Calculate a table for each letter in the alphabet from a-z, and count how many times each letter appears in Alice in Wonderland (fancy word for counting stuff is "frequency distribution" - because you are counting the frequency of something)
 # a: 34,560
 # b: 5,027
 # ...
 # z: 893
-
-
-
